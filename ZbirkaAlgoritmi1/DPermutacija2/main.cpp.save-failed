@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int n,k,d;
+
+int main(){
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    cin>>d>>k>>n;
+    vector<vector<int>>a(n,vector<int>(k));
+    vector<multimap<int,int>>poz(n);
+    for(int i=0;i<n;i++){
+        for(int j=0;j<k;j++){
+            int q;
+            cin>>q;
+            a[i][j]=q;
+            poz[i].insert(q,j);
+        }
+    }
+
+
+    for(auto it1=poz.begin();it1!=poz.end();it1++){
+        //for(auto it2=it1.begin();it2!=it1.end();it2++){
+          //  cout<<it2->first<<" -> "<<it2->second<<'\n';
+        //}
+        cout<<'\n';
+        cout<<(*it1<<' ';
+    }
+}

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1609437931 source:d:\veljkovo\programiranje\c++\vezbanje\petlja\zbirkaalgoritmi1\medijana\main.cpp
+	<iostream>
+	<iomanip>
+	<vector>
+	<algorithm>
+

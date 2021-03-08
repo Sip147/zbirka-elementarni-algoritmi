@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<Takmicar>takmicari;
+map<string,int>br_takm,poc_poz;
+
+
+struct Takmicar{
+    string opstina;
+    string sifra;
+};
+
+void sortiraj(vector<Takmicar> &takmicari, map<string,int> &br_takm, map<string,int> &poc_poz){
+    int poc=0;
+    for(auto it=br_takm.begin();it!=br_takm.end();it++){
+        poc_poz[it->first]=poc;
+        poc+=br_takm[it->first];
+    }
+}
+
+void unesi(vector<Takmicar> &takmicari, map<string,int> &br_takm){
+    string s;
+    while (getline(cin, s)) {
+        int p = s.find('\t');
+        string opstina = s.substr(0, p);
+        string sifra = s.substr(p + 1);
+        takmicari.push_back({opstina, sifra});
+        br_takm[opstina]++;
+      }
+}
+
+void ispisi(vector<Takmicar> takmicari, map<string,int> br_takm){
+    for(int i=0;i<takmicari.size();i++){
+        cout<<takmicari[i].opstina<<": "<<takmicari[i].sifra<<'\n';
+    }
+    cout<<endl;
+    for(auto it=br_takm.begin();it!=br_takm.end();it++){
+        cout<<it->first<<' '<<it->second<<'\n';
+    }
+    cout<<endl;
+    for(auto it=poc_poz.begin();it!=poc_poz.end();it++){
+        cout<<it->first<<':'<<it->second<<'\n';
+    }
+}
+
+int main(){
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    unesi(takmicari,br_takm);
+    sortiraj(takmicari,br_takm,poc_poz);
+    ispisi(takmicari,br_takm,poc_poz);
+
+
+}
